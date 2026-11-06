@@ -45,10 +45,6 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: npx commitlint --from "$BASE_SHA" --to "$HEAD_SHA" --verbose
 
-      - name: Commit message (push)
-        if: github.event_name == 'push'
-        run: npx commitlint --last --verbose
-
       - name: Formatting
         run: npm run format:check
 
